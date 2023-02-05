@@ -4,10 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static com.cashew.gatewayapi.router.RouterCfgParser.readFileAsString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RouterCfgTest {
@@ -37,24 +37,25 @@ public class RouterCfgTest {
         assertEquals("localhost", microservice.getAddress());
         assertEquals("8081", microservice.getPort());
 
+        assertEquals("register", endpoint0.getId());
         assertEquals("/api/auth/v1/register", endpoint0.getGatewayEndpoint());
         assertEquals("/api/auth/register", endpoint0.getMicroserviceEndpoint());
         assertEquals(false, endpoint0.getAuthRequired());
 
+        assertEquals("login", endpoint1.getId());
         assertEquals("/api/auth/v1/login", endpoint1.getGatewayEndpoint());
         assertEquals("/api/auth/login", endpoint1.getMicroserviceEndpoint());
         assertEquals(false, endpoint1.getAuthRequired());
 
+        assertEquals("refresh", endpoint2.getId());
         assertEquals("/api/auth/v1/refresh", endpoint2.getGatewayEndpoint());
         assertEquals("/api/auth/token/refresh", endpoint2.getMicroserviceEndpoint());
         assertEquals(false, endpoint2.getAuthRequired());
 
+        assertEquals("validate", endpoint3.getId());
         assertEquals("/api/auth/v1/validate", endpoint3.getGatewayEndpoint());
         assertEquals("/api/auth/token/validate", endpoint3.getMicroserviceEndpoint());
         assertEquals(false, endpoint3.getAuthRequired());
     }
 
-    public static String readFileAsString(String file)throws Exception {
-        return new String(Files.readAllBytes(Paths.get(file)));
-    }
 }
