@@ -16,8 +16,14 @@ import java.nio.file.Paths;
 public class RouterCfgParser {
 
     @Bean("AuthRoutes")
-    public RouterCfg routerCfg(ObjectMapper objectMapper)  {
+    public RouterCfg authRouterCfg(ObjectMapper objectMapper)  {
         String relativePath = "src/main/resources/routes/auth_routes_v1.json";
+        return getRouterCfg(objectMapper, relativePath);
+    }
+
+    @Bean("UserBudgetRoutes")
+    public RouterCfg userBudgetRouterCfg(ObjectMapper objectMapper)  {
+        String relativePath = "src/main/resources/routes/user_budget_routes_v1.json";
         return getRouterCfg(objectMapper, relativePath);
     }
 

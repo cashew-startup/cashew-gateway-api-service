@@ -1,0 +1,12 @@
+{
+  "name": "user budget microservice",
+  "gateway": {
+    "address": "localhost",
+    "port": "8080"
+  },
+  "microservice": {
+    "address": "localhost",
+    "port": "8082"
+  },
+  "endpoints": []
+}

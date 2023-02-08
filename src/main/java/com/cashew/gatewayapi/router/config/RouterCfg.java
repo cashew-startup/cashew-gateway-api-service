@@ -2,7 +2,6 @@ package com.cashew.gatewayapi.router.config;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +29,10 @@ public class RouterCfg {
     @JsonProperty("endpoints")
     public List<EndpointCfg> getEndpoint() {
         return endpoints;
+    }
+
+    public String getUri() {
+        return "http://" + this.getMicroservice().getAddress() + ":" + this.getMicroservice().getPort();
     }
 
 }

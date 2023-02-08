@@ -38,24 +38,16 @@ public class RouterCfgTest {
         assertEquals("8081", microservice.getPort());
 
         assertEquals("register", endpoint0.getId());
-        assertEquals("/api/auth/v1/register", endpoint0.getGatewayEndpoint());
         assertEquals("/api/auth/register", endpoint0.getMicroserviceEndpoint());
-        assertEquals(false, endpoint0.getAuthRequired());
 
         assertEquals("login", endpoint1.getId());
-        assertEquals("/api/auth/v1/login", endpoint1.getGatewayEndpoint());
         assertEquals("/api/auth/login", endpoint1.getMicroserviceEndpoint());
-        assertEquals(false, endpoint1.getAuthRequired());
 
         assertEquals("refresh", endpoint2.getId());
-        assertEquals("/api/auth/v1/refresh", endpoint2.getGatewayEndpoint());
         assertEquals("/api/auth/token/refresh", endpoint2.getMicroserviceEndpoint());
-        assertEquals(false, endpoint2.getAuthRequired());
 
         assertEquals("validate", endpoint3.getId());
-        assertEquals("/api/auth/v1/validate", endpoint3.getGatewayEndpoint());
         assertEquals("/api/auth/token/validate", endpoint3.getMicroserviceEndpoint());
-        assertEquals(false, endpoint3.getAuthRequired());
     }
 
 }

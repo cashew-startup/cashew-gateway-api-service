@@ -13,17 +13,17 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class AuthRouterConfig extends RouterConfig {
+public class UserBudgetConfig extends RouterConfig {
 
     private final RouterCfg routerCfg;
 
     @Autowired
-    public AuthRouterConfig(@Qualifier("AuthRoutes") RouterCfg routerCfg) {
+    public UserBudgetConfig(@Qualifier("UserBudgetRoutes") RouterCfg routerCfg) {
         this.routerCfg = routerCfg;
     }
 
     @Bean
-    public RouteLocator authRoutes(RouteLocatorBuilder builder) {
+    public RouteLocator userBudgetRoutes(RouteLocatorBuilder builder) {
 
         RouteLocatorBuilder.Builder routesBuilder = builder.routes();
 
