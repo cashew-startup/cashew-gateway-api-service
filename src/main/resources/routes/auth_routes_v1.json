@@ -11,19 +11,27 @@
   "endpoints": [
     {
       "id": "register",
-      "microservice_endpoint": "/api/auth/register"
+      "gateway_endpoint": "/api/auth/register",
+      "microservice_endpoint": "/api/auth/register",
+      "auth_required": false
     },
     {
       "id": "login",
-      "microservice_endpoint": "/api/auth/login"
+      "gateway_endpoint": "/api/auth/login",
+      "microservice_endpoint": "/api/auth/login",
+      "auth_required": false
     },
     {
       "id": "refresh",
-      "microservice_endpoint": "/api/auth/token/refresh"
+      "gateway_endpoint": "/api/auth/token/refresh",
+      "microservice_endpoint": "/api/auth/token/refresh",
+      "auth_required": false
     },
     {
       "id": "validate",
-      "microservice_endpoint": "/api/auth/token/validate"
+      "gateway_endpoint": "/api/auth/token/validate",
+      "microservice_endpoint": "/api/auth/token/validate",
+      "auth_required": true
     }
   ]
 }
