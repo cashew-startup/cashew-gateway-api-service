@@ -1,5 +1,6 @@
 package com.cashew.gatewayapi.router.microserviceConfig;
 
+import com.cashew.gatewayapi.predicate.AuthPredicateFactory;
 import com.cashew.gatewayapi.router.RouterConfig;
 import com.cashew.gatewayapi.router.config.EndpointCfg;
 import com.cashew.gatewayapi.router.config.RouterCfg;
@@ -17,9 +18,12 @@ public class AuthRouterConfig extends RouterConfig {
 
     private final RouterCfg routerCfg;
 
+    private final AuthPredicateFactory authPredicate;
+
     @Autowired
-    public AuthRouterConfig(@Qualifier("AuthRoutes") RouterCfg routerCfg) {
+    public AuthRouterConfig(@Qualifier("AuthRoutes") RouterCfg routerCfg, AuthPredicateFactory authPredicate) {
         this.routerCfg = routerCfg;
+        this.authPredicate = authPredicate;
     }
 
     @Bean
@@ -28,7 +32,7 @@ public class AuthRouterConfig extends RouterConfig {
         RouteLocatorBuilder.Builder routesBuilder = builder.routes();
 
         for (EndpointCfg endpointCfg : routerCfg.getEndpoints()) {
-            processEndpoint(routerCfg, endpointCfg, routesBuilder);
+            processEndpoint(routerCfg, endpointCfg, routesBuilder, authPredicate);
         }
         return routesBuilder.build();
     }
