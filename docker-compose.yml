@@ -1,0 +1,9 @@
+version: '3'
+services:
+  springboot-docker-container-gateway:
+    image: meelesh/gateway-api
+    ports:
+      - '8080:8080'
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"
