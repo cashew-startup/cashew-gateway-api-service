@@ -6,7 +6,122 @@
   },
   "microservice": {
     "address": "localhost",
-    "port": "8082"
+    "port": "8083"
   },
-  "endpoints": []
+  "endpoints": [
+    {
+      "id": "/users",
+      "gateway_endpoint": "/api/v1/users",
+      "microservice_endpoint": "/api/v1/users",
+      "auth_required": true
+    },
+    {
+      "id": "/users/byUsername",
+      "gateway_endpoint": "/api/v1/users/byUsername",
+      "microservice_endpoint": "/api/v1/users/byUsername",
+      "auth_required": true
+    },
+    {
+      "id": "/users/byEmail",
+      "gateway_endpoint": "/api/v1/users/byEmail",
+      "microservice_endpoint": "/api/v1/users/byEmail",
+      "auth_required": true
+    },
+    {
+      "id": "/parties",
+      "gateway_endpoint": "/api/v1/parties",
+      "microservice_endpoint": "/api/v1/parties",
+      "auth_required": true
+    },
+    {
+      "id": "/parties/{id}",
+      "gateway_endpoint": "/api/v1/parties/{id}",
+      "microservice_endpoint": "/api/v1/parties/{id}",
+      "auth_required": true
+    },
+    {
+      "id": "/parties/{id}/info",
+      "gateway_endpoint": "/api/v1/parties/{id}/info",
+      "microservice_endpoint": "/api/v1/parties/{id}/info",
+      "auth_required": true
+    },
+    {
+      "id": "/parties/of",
+      "gateway_endpoint": "/api/v1/parties/of",
+      "microservice_endpoint": "/api/v1/parties/of",
+      "auth_required": true
+    },
+    {
+      "id": "/parties/users",
+      "gateway_endpoint": "/api/v1/parties/users",
+      "microservice_endpoint": "/api/v1/parties/users",
+      "auth_required": true
+    },
+    {
+      "id": "/friends",
+      "gateway_endpoint": "/api/v1/friends",
+      "microservice_endpoint": "/api/v1/friends",
+      "auth_required": true
+    },
+    {
+      "id": "/friends/requests",
+      "gateway_endpoint": "/api/v1/friends/requests",
+      "microservice_endpoint": "/api/v1/friends/requests",
+      "auth_required": true
+    },
+    {
+      "id": "/friends/requests/send",
+      "gateway_endpoint": "/api/v1/friends/requests/send",
+      "microservice_endpoint": "/api/v1/friends/requests/send",
+      "auth_required": true
+    },
+    {
+      "id": "/friends/requests/accept",
+      "gateway_endpoint": "/api/v1/friends/requests/accept",
+      "microservice_endpoint": "/api/v1/friends/requests/accept",
+      "auth_required": true
+    },
+    {
+      "id": "/friends/requests/decline",
+      "gateway_endpoint": "/api/v1/friends/requests/decline",
+      "microservice_endpoint": "/api/v1/friends/requests/decline",
+      "auth_required": true
+    },
+    {
+      "id": "/expenses",
+      "gateway_endpoint": "/api/v1/expenses",
+      "microservice_endpoint": "/api/v1/expenses",
+      "auth_required": true
+    },
+    {
+      "id": "/expenses/day",
+      "gateway_endpoint": "/api/v1/expenses/day",
+      "microservice_endpoint": "/api/v1/expenses/day",
+      "auth_required": true
+    },
+    {
+      "id": "/expenses/week",
+      "gateway_endpoint": "/api/v1/expenses/week",
+      "microservice_endpoint": "/api/v1/expenses/week",
+      "auth_required": true
+    },
+    {
+      "id": "/expenses/month",
+      "gateway_endpoint": "/api/v1/expenses/month",
+      "microservice_endpoint": "/api/v1/expenses/month",
+      "auth_required": true
+    },
+    {
+      "id": "/expenses/year",
+      "gateway_endpoint": "/api/v1/expenses/year",
+      "microservice_endpoint": "/api/v1/expenses/year",
+      "auth_required": true
+    },
+    {
+      "id": "/expenses/period",
+      "gateway_endpoint": "/api/v1/expenses/period",
+      "microservice_endpoint": "/api/v1/expenses/period",
+      "auth_required": true
+    }
+  ]
 }
