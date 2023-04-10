@@ -1,11 +1,11 @@
 {
   "name": "user budget microservice",
   "gateway": {
-    "address": "localhost",
+    "address": "194.35.116.155",
     "port": "8080"
   },
   "microservice": {
-    "address": "localhost",
+    "address": "194.35.116.155",
     "port": "8083"
   },
   "endpoints": [
@@ -35,14 +35,14 @@
     },
     {
       "id": "/parties/{id}",
-      "gateway_endpoint": "/api/v1/parties/{id}",
-      "microservice_endpoint": "/api/v1/parties/{id}",
+      "gateway_endpoint": "/api/v1/parties/{segment}",
+      "microservice_endpoint": "/api/v1/parties/{segment}",
       "auth_required": true
     },
     {
       "id": "/parties/{id}/info",
-      "gateway_endpoint": "/api/v1/parties/{id}/info",
-      "microservice_endpoint": "/api/v1/parties/{id}/info",
+      "gateway_endpoint": "/api/v1/parties/{segment}/info",
+      "microservice_endpoint": "/api/v1/parties/{segment}/info",
       "auth_required": true
     },
     {

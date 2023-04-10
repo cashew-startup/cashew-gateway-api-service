@@ -1,0 +1,11 @@
+FROM openjdk:17
+
+ADD target/gatewayApi-1.0.0.jar gatewayApi-1.0.0.jar
+
+COPY src/main/resources/routes/auth_routes_v1.json src/main/resources/routes/auth_routes_v1.json
+COPY src/main/resources/routes/user_budget_routes_v1.json src/main/resources/routes/user_budget_routes_v1.json
+COPY src/main/resources/routes/receipt_routes_v1.json src/main/resources/routes/receipt_routes_v1.json
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "gatewayApi-1.0.0.jar"]

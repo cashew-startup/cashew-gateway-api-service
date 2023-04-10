@@ -1,0 +1,97 @@
+version: '3.9'
+
+networks:
+  web:
+    external: true
+    driver:  bridge
+
+services:
+  chrome:
+    image: selenium/standalone-chrome:latest
+    hostname: chrome
+    networks:
+      - web
+    ports:
+      - "5900:5900"
+      - "4444:4444"
+    privileged: true
+    shm_size: 2g
+
+  mysql-standalone:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=cashewAuthDB
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    ports:
+      - '3307:3306'
+
+  mysql-standalone-2:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=budget_db
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    ports:
+      - '3303:3306'
+
+
+  mysql-standalone-3:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=cashewReceiptDB
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    ports:
+      - '3309:3306'
+
+  account-manager:
+    image: meelesh/account-manager
+    ports:
+      - '8081:8081'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/cashewAuthDB?autoReconnect=true&useSSL=false
+      restart: unless-stopped
+    build:
+      context: "./"
+      dockerfile: "Dockerfile_account_manager"
+    depends_on:
+      - mysql-standalone
+
+  gateway:
+    image: meelesh/gateway-api
+    ports:
+      - '8080:8080'
+    build:
+      context: "./"
+      dockerfile: "Dockerfile_gateway"
+
+  budget-service:
+    image: meelesh/budget-service
+    ports:
+      - '8083:8083'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone-2:3306/budget_db?autoReconnect=true&useSSL=false
+      restart: unless-stopped
+    build:
+      context: "./"
+      dockerfile: "Dockerfile_budget"
+    depends_on:
+      - mysql-standalone-2
+
+  check-service:
+    image: meelesh/check-service
+    ports:
+      - '8085:8085'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone-3:3306/cashewReceiptDB?autoReconnect=true&useSSL=false
+      restart: unless-stopped
+    build:
+      context: "./"
+      dockerfile: "Dockerfile_check"
+    depends_on:
+      - mysql-standalone-3
+      - chrome

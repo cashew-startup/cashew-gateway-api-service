@@ -27,6 +27,12 @@ public class RouterCfgParser {
         return getRouterCfg(objectMapper, relativePath);
     }
 
+    @Bean("ReceiptRoutes")
+    public RouterCfg receiptrouterCfg(ObjectMapper objectMapper) {
+        String relativePath = "src/main/resources/routes/receipt_routes_v1.json";
+        return getRouterCfg(objectMapper, relativePath);
+    }
+
     @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper();

@@ -1,0 +1,19 @@
+{
+  "name": "receipt microservice",
+  "gateway": {
+    "address": "194.35.116.155",
+    "port": "8080"
+  },
+  "microservice": {
+    "address": "194.35.116.155",
+    "port": "8085"
+  },
+  "endpoints": [
+    {
+      "id": "receipt",
+      "gateway_endpoint": "/receipt",
+      "microservice_endpoint": "/receipt",
+      "auth_required": false
+    }
+  ]
+}

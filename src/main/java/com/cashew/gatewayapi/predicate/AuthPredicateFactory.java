@@ -22,7 +22,6 @@ public class AuthPredicateFactory {
 
         if (!cfg.getAuthRequired()) return true;
 
-        log.info("AuthPredicateFactory.apply");
         ServerHttpRequest request = config.getRequest();
         HttpHeaders headers = request.getHeaders();
 
@@ -38,7 +37,7 @@ public class AuthPredicateFactory {
 
         RestTemplate restTemplate = new RestTemplate();
 
-        String fooResourceUrl = "http://localhost:8081/api/auth/token/validate";
+        String fooResourceUrl = "http://194.35.116.155:8081/api/auth/token/validate";
         ResponseEntity<String> response = null;
         try {
             response = restTemplate.exchange(fooResourceUrl, HttpMethod.GET, entity, String.class);
@@ -55,7 +54,10 @@ public class AuthPredicateFactory {
             return false;
         }
 
-        if (Boolean.getBoolean(json.get("success"))) return false;
+        if (!Boolean.parseBoolean(json.get("success")) || json.get("id") == null) {
+            log.info("user is not authorized because success is: " + Boolean.parseBoolean(json.get("success")));
+            return false;
+        }
 
         log.info("user id: {}, role: {} is authorized", json.get("id"), json.get("role"));
 
