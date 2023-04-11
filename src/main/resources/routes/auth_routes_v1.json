@@ -1,11 +1,11 @@
 {
   "name": "auth microservice",
   "gateway": {
-    "address": "localhost",
+    "address": "194.35.116.155",
     "port": "8080"
   },
   "microservice": {
-    "address": "localhost",
+    "address": "194.35.116.155",
     "port": "8081"
   },
   "endpoints": [
@@ -32,6 +32,12 @@
       "gateway_endpoint": "/api/auth/token/validate",
       "microservice_endpoint": "/api/auth/token/validate",
       "auth_required": true
+    },
+    {
+      "id": "unauthorized",
+      "gateway_endpoint": "/api/auth/unauthorized",
+      "microservice_endpoint": "/api/auth/unauthorized",
+      "auth_required": false
     }
   ]
 }

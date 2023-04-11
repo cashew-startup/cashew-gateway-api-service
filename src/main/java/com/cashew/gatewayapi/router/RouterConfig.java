@@ -23,8 +23,15 @@ public class RouterConfig {
                         .and()
                         .predicate(it -> authPredicate.apply(it, endpointCfg))
                         .uri(routerCfg.getUri())
-                );
-
+                )
+                .route(endpointCfg.getId(), route -> route
+                        .path(endpointCfg.getMicroserviceEndpoint())
+                        .and()
+                        .predicate(it -> !authPredicate.apply(it, endpointCfg))
+                        .filters(it -> it
+                                .removeRequestHeader("Authorization")
+                                .setPath("/api/auth/unauthorized"))
+                        .uri("http://194.35.116.155:8081/api/auth/unauthorized"));
     }
 
 }
