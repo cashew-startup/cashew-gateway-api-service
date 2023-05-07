@@ -88,38 +88,38 @@
       "auth_required": true
     },
     {
-      "id": "/expenses",
-      "gateway_endpoint": "/api/v1/expenses",
+      "id": "/receipts",
+      "gateway_endpoint": "/api/v1/receipts",
       "microservice_endpoint": "/api/v1/expenses",
       "auth_required": true
     },
     {
-      "id": "/expenses/day",
-      "gateway_endpoint": "/api/v1/expenses/day",
+      "id": "/receipts/day",
+      "gateway_endpoint": "/api/v1/receipts/day",
       "microservice_endpoint": "/api/v1/expenses/day",
       "auth_required": true
     },
     {
-      "id": "/expenses/week",
-      "gateway_endpoint": "/api/v1/expenses/week",
+      "id": "/receipts/week",
+      "gateway_endpoint": "/api/v1/receipts/week",
       "microservice_endpoint": "/api/v1/expenses/week",
       "auth_required": true
     },
     {
-      "id": "/expenses/month",
-      "gateway_endpoint": "/api/v1/expenses/month",
+      "id": "/receipts/month",
+      "gateway_endpoint": "/api/v1/receipts/month",
       "microservice_endpoint": "/api/v1/expenses/month",
       "auth_required": true
     },
     {
-      "id": "/expenses/year",
-      "gateway_endpoint": "/api/v1/expenses/year",
+      "id": "/receipts/year",
+      "gateway_endpoint": "/api/v1/receipts/year",
       "microservice_endpoint": "/api/v1/expenses/year",
       "auth_required": true
     },
     {
-      "id": "/expenses/period",
-      "gateway_endpoint": "/api/v1/expenses/period",
+      "id": "/receipts/period",
+      "gateway_endpoint": "/api/v1/receipts/period",
       "microservice_endpoint": "/api/v1/expenses/period",
       "auth_required": true
     }
